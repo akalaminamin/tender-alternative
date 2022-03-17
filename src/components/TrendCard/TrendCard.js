@@ -20,7 +20,7 @@ const TrendCard = () => {
         {loader ? (
           <Loader />
         ) : (
-          AllGiphy.slice(0, 9).map((gip) => (
+          AllGiphy.slice(0, 5).map((gip) => (
             <div
               className="flex flex-col text-center cursor-pointer"
               key={gip.id}

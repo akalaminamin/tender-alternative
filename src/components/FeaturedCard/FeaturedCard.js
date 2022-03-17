@@ -8,7 +8,7 @@ const FeaturedCard = () => {
   const { AllGiphy, loader, error } = state;
   // pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerpage] = useState(6);
+  const [itemsPerPage, setItemsPerpage] = useState(9);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currenGiphy = AllGiphy.slice(indexOfFirstItem, indexOfLastItem);

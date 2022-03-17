@@ -2,11 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
+import Paginate from "../../components/Paginate/Paginate";
 const SearchResult = () => {
   const { inputvalue } = useParams();
   const [giphy, setGiphy] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  // pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerpage] = useState(9);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currenGiphy = giphy.slice(indexOfFirstItem, indexOfLastItem);
+  // selected page function
+  const selectedPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
   useEffect(async () => {
     try {
       setLoading(true);
@@ -38,7 +50,7 @@ const SearchResult = () => {
           {loading ? (
             <Loader />
           ) : (
-            giphy.map((gip) => (
+            currenGiphy.map((gip) => (
               <div
                 className="flex flex-col text-center cursor-pointer"
                 key={gip.id}
@@ -57,6 +69,12 @@ const SearchResult = () => {
             ))
           )}
         </div>
+        <Paginate
+          selectedPage={selectedPage}
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage}
+          totalItems={giphy.length}
+        />
       </div>
     </>
   );

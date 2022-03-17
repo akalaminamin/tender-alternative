@@ -1,5 +1,4 @@
 import React from "react";
-
 const Paginate = ({ totalItems, itemsPerPage, selectedPage, currentPage }) => {
   let pageNumber = [];
 
@@ -12,9 +11,8 @@ const Paginate = ({ totalItems, itemsPerPage, selectedPage, currentPage }) => {
         <ul class="inline-flex items-center -space-x-px">
           {pageNumber.map((number, index) => (
             <li key={index}>
-              <a
+              <button
                 onClick={() => selectedPage(number)}
-                href="#"
                 class={
                   number === currentPage
                     ? "pagination bg-blue-700 text-white hover:bg-blue-800 hover:text-white"
@@ -22,7 +20,7 @@ const Paginate = ({ totalItems, itemsPerPage, selectedPage, currentPage }) => {
                 }
               >
                 {number}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
