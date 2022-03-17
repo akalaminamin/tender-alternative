@@ -1,9 +1,10 @@
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
-import SearchBar from './components/SearchBar/SearchBar';
-import Home from './pages/Home/Home';
-import SearchResult from './pages/SearchResult/SearchResult';
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SearchBar from "./components/SearchBar/SearchBar";
+import Home from "./pages/Home/Home";
+import SearchResult from "./pages/SearchResult/SearchResult";
+import SingleGif from "./pages/SingleGif/SingleGif";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
         <Navbar />
         <SearchBar />
         <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/search/:inputvalue' element={<SearchResult />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/search/:inputvalue" element={<SearchResult />} />
+          <Route path="/view/:id" element={<SingleGif />} />
         </Routes>
       </Router>
     </div>

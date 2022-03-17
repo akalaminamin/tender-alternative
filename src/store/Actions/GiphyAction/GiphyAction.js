@@ -12,7 +12,6 @@ export const getGiphy = async ({ dispatch }) => {
     });
     dispatch({ type: CLOSE_LOADER });
     dispatch({ type: FETCH_DATA, payload: response.data.data });
-    console.log(response.data.data)
   } catch (error) {
     dispatch({ type: ERROR_MESSAGE, payload: error.message });
   }

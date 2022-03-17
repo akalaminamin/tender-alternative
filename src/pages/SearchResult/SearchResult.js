@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
 import Paginate from "../../components/Paginate/Paginate";
@@ -55,16 +55,18 @@ const SearchResult = () => {
                 className="flex flex-col text-center cursor-pointer"
                 key={gip.id}
               >
-                <div className="w-full h-52 shadow-lg">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={gip?.images?.fixed_height?.url}
-                    alt="trend image"
-                  />
-                </div>
-                <h2 className="text-gray-700 font-semibold text-lg py-3 hover:text-blue-500">
-                  {gip.title}
-                </h2>
+                <Link to={`/view/${gip.id}`}>
+                  <div className="w-full h-52 shadow-lg">
+                    <img
+                      className="w-full h-full object-cover"
+                      src={gip?.images?.fixed_height?.url}
+                      alt="trend image"
+                    />
+                  </div>
+                  <h2 className="text-gray-700 font-semibold text-lg py-3 hover:text-blue-500">
+                    {gip.title}
+                  </h2>
+                </Link>
               </div>
             ))
           )}

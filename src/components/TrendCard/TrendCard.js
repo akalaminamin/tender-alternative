@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Loader from "../Loader/Loader";
 import { getGiphy } from "../../store/Actions/GiphyAction/GiphyAction";
 import giphyContext from "../../store/contexts/GiphyContext/GiphyContext";
+import { Link } from "react-router-dom";
 const TrendCard = () => {
   const { state, dispatch } = useContext(giphyContext);
   const { AllGiphy, loader, error } = state;
@@ -25,16 +26,18 @@ const TrendCard = () => {
               className="flex flex-col text-center cursor-pointer"
               key={gip.id}
             >
-              <div className="w-full h-36 shadow-lg">
-                <img
-                  className="w-full h-full"
-                  src={gip?.images?.fixed_height?.url}
-                  alt="trend image"
-                />
-              </div>
-              <h2 className="text-gray-700 font-semibold text-md py-3 hover:text-blue-500">
-                {gip.title}
-              </h2>
+              <Link to={`/view/${gip.id}`}>
+                <div className="w-full h-36 shadow-lg">
+                  <img
+                    className="w-full h-full"
+                    src={gip?.images?.fixed_height?.url}
+                    alt="trend image"
+                  />
+                </div>
+                <h2 className="text-gray-700 font-semibold text-md py-3 hover:text-blue-500">
+                  {gip.title}
+                </h2>
+              </Link>
             </div>
           ))
         )}

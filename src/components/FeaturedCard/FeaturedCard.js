@@ -3,9 +3,11 @@ import { getGiphy } from "../../store/Actions/GiphyAction/GiphyAction";
 import giphyContext from "../../store/contexts/GiphyContext/GiphyContext";
 import Loader from "../Loader/Loader";
 import Paginate from "../Paginate/Paginate";
+import { Link } from "react-router-dom";
 const FeaturedCard = () => {
   const { state, dispatch } = useContext(giphyContext);
   const { AllGiphy, loader, error } = state;
+
   // pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerpage] = useState(9);
@@ -39,16 +41,18 @@ const FeaturedCard = () => {
                 className="flex flex-col text-center cursor-pointer"
                 key={gip.id}
               >
-                <div className="w-full h-52 shadow-lg">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={gip?.images?.fixed_height?.url}
-                    alt="trend image"
-                  />
-                </div>
-                <h2 className="text-gray-700 font-semibold text-xl py-3 hover:text-blue-500">
-                  {gip.title}
-                </h2>
+                <Link to={`/view/${gip.id}`}>
+                  <div className="w-full h-52 shadow-lg">
+                    <img
+                      className="w-full h-full object-cover rounded-md"
+                      src={gip?.images?.fixed_height?.url}
+                      alt="trend image"
+                    />
+                  </div>
+                  <h2 className="text-gray-700 font-semibold text-xl py-3 hover:text-blue-500">
+                    {gip.title}
+                  </h2>
+                </Link>
               </div>
             ))
           )}
