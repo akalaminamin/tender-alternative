@@ -50,7 +50,7 @@ const SearchResult = () => {
                     alt="trend image"
                   />
                 </div>
-                <h2 className="text-gray-700 font-semibold text-lg py-3">
+                <h2 className="text-gray-700 font-semibold text-lg py-3 hover:text-blue-500">
                   {gip.title}
                 </h2>
               </div>

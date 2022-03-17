@@ -20,7 +20,7 @@ const TrendCard = () => {
         {loader ? (
           <Loader />
         ) : (
-          AllGiphy.slice(0, 10).map((gip) => (
+          AllGiphy.slice(0, 9).map((gip) => (
             <div
               className="flex flex-col text-center cursor-pointer"
               key={gip.id}
@@ -32,7 +32,7 @@ const TrendCard = () => {
                   alt="trend image"
                 />
               </div>
-              <h2 className="text-gray-700 font-semibold text-md py-3">
+              <h2 className="text-gray-700 font-semibold text-md py-3 hover:text-blue-500">
                 {gip.title}
               </h2>
             </div>
