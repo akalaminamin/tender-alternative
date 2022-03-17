@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-link {
+    @apply mr-8 hover:text-green-600 text-sm font-medium;
+  }
+  .search-input {
+    @apply h-14 w-full pr-8 pl-5 rounded z-0 shadow-md focus:shadow focus:outline-none bg-white;
+  }
+}
